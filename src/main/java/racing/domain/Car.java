@@ -2,7 +2,7 @@ package racing.domain;
 
 public class Car {
     private final String name;
-    private final int position;
+    private int position;
 
     public Car(String name) {
         validNameSize(name);
@@ -22,5 +22,9 @@ public class Car {
 
     public int getPosition() {
         return position;
+    }
+
+    public void forward() {
+        this.position++;
     }
 }

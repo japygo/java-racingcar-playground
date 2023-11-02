@@ -32,4 +32,13 @@ class CarTest {
         int actual = car.getPosition();
         assertThat(actual).isEqualTo(1);
     }
+
+    @Test
+    @DisplayName("자동차는 전진할 수 있다")
+    void forward() {
+        Car car = new Car("자동차");
+        car.forward();
+        int actual = car.getPosition();
+        assertThat(actual).isEqualTo(2);
+    }
 }
