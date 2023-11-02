@@ -2,10 +2,12 @@ package racing.domain;
 
 public class Car {
     private final String name;
+    private final int position;
 
     public Car(String name) {
         validNameSize(name);
         this.name = name;
+        this.position = 1;
     }
 
     private void validNameSize(String name) {
@@ -16,5 +18,9 @@ public class Car {
 
     public String getName() {
         return name;
+    }
+
+    public int getPosition() {
+        return position;
     }
 }

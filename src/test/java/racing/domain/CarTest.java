@@ -24,4 +24,12 @@ class CarTest {
         assertThatThrownBy(() -> new Car(actual))
                 .isInstanceOf(IllegalArgumentException.class);
     }
+
+    @Test
+    @DisplayName("자동차의 처음 위치는 1이다")
+    void position() {
+        Car car = new Car("자동차");
+        int actual = car.getPosition();
+        assertThat(actual).isEqualTo(1);
+    }
 }
