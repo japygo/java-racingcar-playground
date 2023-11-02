@@ -41,4 +41,14 @@ class CarTest {
         int actual = car.getPosition();
         assertThat(actual).isEqualTo(2);
     }
+
+    @Test
+    @DisplayName("자동차는 random 값이 4이상일 경우 전진한다")
+    void move() {
+        Car car = new Car("자동차");
+        car.move(1);
+        assertThat(car.getPosition()).isEqualTo(1);
+        car.move(9);
+        assertThat(car.getPosition()).isEqualTo(2);
+    }
 }

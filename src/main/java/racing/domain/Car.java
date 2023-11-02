@@ -27,4 +27,10 @@ public class Car {
     public void forward() {
         this.position++;
     }
+
+    public void move(int random) {
+        if (random >= 4) {
+            forward();
+        }
+    }
 }
