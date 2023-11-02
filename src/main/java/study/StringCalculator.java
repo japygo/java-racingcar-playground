@@ -11,6 +11,6 @@ public class StringCalculator {
         if (formula == null || formula.isEmpty()) {
             return 0;
         }
-        return Arrays.stream(formula.split(",")).mapToInt(Integer::parseInt).sum();
+        return Arrays.stream(formula.split("[,:]")).mapToInt(Integer::parseInt).sum();
     }
 }
