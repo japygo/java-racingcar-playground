@@ -9,6 +9,6 @@ public class StringCalculator {
         if (formula == null || formula.isEmpty()) {
             return 0;
         }
-        return 0;
+        return Integer.parseInt(formula);
     }
 }
