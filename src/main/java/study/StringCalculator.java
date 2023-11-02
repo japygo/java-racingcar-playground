@@ -3,6 +3,7 @@ package study;
 import java.util.Arrays;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.stream.IntStream;
 
 public class StringCalculator {
 
@@ -21,6 +22,11 @@ public class StringCalculator {
             formula = matcher.group(2);
         }
 
-        return Arrays.stream(formula.split(delimiter)).mapToInt(Integer::parseInt).sum();
+        return Arrays.stream(formula.split(delimiter))
+                .mapToInt(Integer::parseInt)
+                .filter(value -> {
+                    if (value < 0) throw new RuntimeException();
+                    return true;
+                }).sum();
     }
 }
