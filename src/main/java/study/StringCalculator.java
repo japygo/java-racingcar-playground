@@ -1,5 +1,7 @@
 package study;
 
+import java.util.Arrays;
+
 public class StringCalculator {
 
     private StringCalculator() {
@@ -9,6 +11,6 @@ public class StringCalculator {
         if (formula == null || formula.isEmpty()) {
             return 0;
         }
-        return Integer.parseInt(formula);
+        return Arrays.stream(formula.split(",")).mapToInt(Integer::parseInt).sum();
     }
 }
