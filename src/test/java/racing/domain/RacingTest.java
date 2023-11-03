@@ -15,4 +15,12 @@ class RacingTest {
         RacingCars actual = racing.getCars();
         assertThat(actual.getCars()).hasSize(3);
     }
+
+    @Test
+    @DisplayName("시도할 횟수를 입력 받아 전진 횟수를 구분한다")
+    void count() {
+        int count = 5;
+        Racing racing = new Racing("a,b,c", count);
+        assertThat(racing.getCount()).isEqualTo(count);
+    }
 }
