@@ -23,4 +23,11 @@ class RacingTest {
         Racing racing = new Racing("a,b,c", count);
         assertThat(racing.getCount()).isEqualTo(count);
     }
+
+    @Test
+    @DisplayName("자동차 경주 게임을 완료한 후 누가 우승했는지를 알려준다")
+    void win() {
+        Racing racing = new Racing("a,b,c", 5);
+        assertThat(racing.winner()).isNotNull();
+    }
 }

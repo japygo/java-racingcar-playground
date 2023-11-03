@@ -7,6 +7,7 @@ import java.util.stream.Collectors;
 public class Racing {
     private final RacingCars cars;
     private int count;
+    private String winner;
 
     public Racing(String names) {
         List<Car> carList =
@@ -28,5 +29,29 @@ public class Racing {
 
     public int getCount() {
         return count;
+    }
+
+    public String winner() {
+        int max = Integer.MIN_VALUE;
+        for (Car car : cars.getCars()) {
+            max = setWinner(car, max);
+        }
+        return this.winner;
+    }
+
+    private int setWinner(Car car, int max) {
+        int position = car.getPosition();
+        if (position > max) {
+            max = position;
+            winner = car.getName();
+            return max;
+        }
+        if (position == max) {
+            if (!winner.isEmpty()) {
+                winner += ", ";
+            }
+            winner += car.getName();
+        }
+        return max;
     }
 }
