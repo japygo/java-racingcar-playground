@@ -1,7 +1,7 @@
 package racing.domain;
 
 public class CarPosition {
-    private final int position;
+    private int position;
 
     public CarPosition(int position) {
         this.position = position;
@@ -9,6 +9,10 @@ public class CarPosition {
 
     public CarPosition() {
         this(1);
+    }
+
+    public void forward() {
+        this.position++;
     }
 
     @Override

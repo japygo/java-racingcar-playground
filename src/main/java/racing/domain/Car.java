@@ -15,6 +15,12 @@ public class Car {
         this(name, new CarPosition());
     }
 
+    public void move(CarMovable movable) {
+        if (movable.isMove()) {
+            position.forward();
+        }
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
