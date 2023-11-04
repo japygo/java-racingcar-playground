@@ -1,13 +1,14 @@
 package racing.domain;
 
 import java.util.Arrays;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 public class RacingGame {
     private static final String SPLIT_DELIMITER = ",";
 
     private final RacingCars cars;
-    private final int tryCount;
+    private int tryCount;
 
     public RacingGame(String names, int tryCount) {
         this(
@@ -28,6 +29,11 @@ public class RacingGame {
 
     public void race(CarMovable movable) {
         cars.race(movable);
+        tryCount--;
+    }
+
+    public boolean isEnd() {
+        return tryCount <= 0;
     }
 
     @Override
@@ -38,12 +44,12 @@ public class RacingGame {
         RacingGame that = (RacingGame) o;
 
         if (tryCount != that.tryCount) return false;
-        return cars.equals(that.cars);
+        return Objects.equals(cars, that.cars);
     }
 
     @Override
     public int hashCode() {
-        int result = cars.hashCode();
+        int result = cars != null ? cars.hashCode() : 0;
         result = 31 * result + tryCount;
         return result;
     }

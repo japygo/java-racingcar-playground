@@ -32,8 +32,18 @@ class RacingGameTest {
                                         new Car(new CarName("b"), new CarPosition(2))
                                 )
                         ),
-                        5
+                        4
                 )
         );
+    }
+
+    @Test
+    @DisplayName("자동차 경주 게임이 끝인지 확인한다")
+    void end() {
+        RacingGame racingGame = new RacingGame("a,b,c", 2);
+        racingGame.race(() -> true);
+        assertThat(racingGame.isEnd()).isFalse();
+        racingGame.race(() -> true);
+        assertThat(racingGame.isEnd()).isTrue();
     }
 }
