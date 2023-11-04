@@ -36,6 +36,10 @@ public class RacingGame {
         return tryCount <= 0;
     }
 
+    public RacingCars getWinner() {
+        return cars.getWinner();
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

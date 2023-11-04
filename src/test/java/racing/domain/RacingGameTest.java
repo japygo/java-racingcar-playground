@@ -46,4 +46,27 @@ class RacingGameTest {
         racingGame.race(() -> true);
         assertThat(racingGame.isEnd()).isTrue();
     }
+
+    @Test
+    @DisplayName("자동차 경주 게임 우승자를 확인한다")
+    void winner() {
+        RacingGame racingGame = new RacingGame(
+                new RacingCars(
+                        Arrays.asList(
+                                new Car(new CarName("a"), new CarPosition(1)),
+                                new Car(new CarName("b"), new CarPosition(2)),
+                                new Car(new CarName("c"), new CarPosition(2))
+                        )
+                ),
+                5
+        );
+        assertThat(racingGame.getWinner()).isEqualTo(
+                new RacingCars(
+                        Arrays.asList(
+                                new Car(new CarName("b"), new CarPosition(2)),
+                                new Car(new CarName("c"), new CarPosition(2))
+                        )
+                )
+        );
+    }
 }

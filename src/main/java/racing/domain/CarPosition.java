@@ -15,6 +15,14 @@ public class CarPosition {
         this.position++;
     }
 
+    public int compareTo(CarPosition carPosition) {
+        return carPosition.compareTo(position);
+    }
+
+    private int compareTo(int position) {
+        return position - this.position;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -28,5 +36,12 @@ public class CarPosition {
     @Override
     public int hashCode() {
         return position;
+    }
+
+    @Override
+    public String toString() {
+        return "CarPosition{" +
+                "position=" + position +
+                '}';
     }
 }

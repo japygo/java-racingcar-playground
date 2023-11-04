@@ -4,6 +4,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import java.util.stream.Stream;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 class CarTest {
@@ -28,5 +30,15 @@ class CarTest {
         assertThat(car).isEqualTo(new Car(new CarName("test"), new CarPosition(1)));
         car.move(() -> true);
         assertThat(car).isEqualTo(new Car(new CarName("test"), new CarPosition(2)));
+    }
+
+    @Test
+    @DisplayName("자동차 위치를 비교한다")
+    void compareTo() {
+        assertThat(Stream.of(
+                new Car(new CarName("test1"), new CarPosition(1)),
+                new Car(new CarName("test2"), new CarPosition(2))
+        ).max(Car::compareTo))
+                .contains(new Car(new CarName("test2"), new CarPosition(2)));
     }
 }

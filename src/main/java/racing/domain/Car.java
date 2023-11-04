@@ -21,6 +21,14 @@ public class Car {
         }
     }
 
+    public int compareTo(Car car) {
+        return car.compareTo(position);
+    }
+
+    public int compareTo(CarPosition carPosition) {
+        return carPosition.compareTo(position);
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -37,5 +45,13 @@ public class Car {
         int result = name != null ? name.hashCode() : 0;
         result = 31 * result + (position != null ? position.hashCode() : 0);
         return result;
+    }
+
+    @Override
+    public String toString() {
+        return "Car{" +
+                "name=" + name +
+                ", position=" + position +
+                '}';
     }
 }
