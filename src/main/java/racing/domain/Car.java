@@ -1,5 +1,7 @@
 package racing.domain;
 
+import racing.dto.CarDto;
+
 import java.util.Objects;
 
 public class Car {
@@ -27,6 +29,18 @@ public class Car {
 
     public int compareTo(CarPosition carPosition) {
         return carPosition.compareTo(position);
+    }
+
+    public boolean isSamePosition(Car car) {
+        return car.isSamePosition(position);
+    }
+
+    private boolean isSamePosition(CarPosition carPosition) {
+        return position.equals(carPosition);
+    }
+
+    public CarDto toDto() {
+        return new CarDto(name, position);
     }
 
     @Override

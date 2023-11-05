@@ -1,5 +1,7 @@
 package racing.domain;
 
+import racing.dto.CarDto;
+
 public class CarPosition {
     private int position;
 
@@ -21,6 +23,10 @@ public class CarPosition {
 
     private int compareTo(int position) {
         return position - this.position;
+    }
+
+    public CarDto toDto(CarDto carDto) {
+        return carDto.setPosition(position);
     }
 
     @Override

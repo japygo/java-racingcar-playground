@@ -1,5 +1,7 @@
 package racing.domain;
 
+import racing.dto.CarDto;
+
 import java.util.Objects;
 
 public class CarName {
@@ -19,6 +21,10 @@ public class CarName {
         if (name.length() > MAX_SIZE) {
             throw new IllegalArgumentException("이름은 5자를 초과할 수 없습니다.");
         }
+    }
+
+    public CarDto toDto(CarDto carDto) {
+        return carDto.setName(name);
     }
 
     @Override

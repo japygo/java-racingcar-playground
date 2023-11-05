@@ -1,5 +1,8 @@
 package racing.domain;
 
+import racing.dto.CarDto;
+import racing.dto.RacingCarsDto;
+
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
@@ -18,8 +21,12 @@ public class RacingCars {
     public RacingCars getWinner() {
         Car maxCar = this.cars.stream().max(Car::compareTo).orElseThrow(RuntimeException::new);
         return new RacingCars(
-                this.cars.stream().filter(car -> car.compareTo(maxCar) == 0).collect(Collectors.toList())
+                this.cars.stream().filter(car -> car.isSamePosition(maxCar)).collect(Collectors.toList())
         );
+    }
+
+    public RacingCarsDto toDto() {
+        return new RacingCarsDto(cars.stream().map(Car::toDto).collect(Collectors.toList()));
     }
 
     @Override

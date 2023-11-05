@@ -1,5 +1,7 @@
 package racing.domain;
 
+import racing.dto.RacingCarsDto;
+
 import java.util.Arrays;
 import java.util.Objects;
 import java.util.stream.Collectors;
@@ -38,6 +40,10 @@ public class RacingGame {
 
     public RacingCars getWinner() {
         return cars.getWinner();
+    }
+
+    public RacingCarsDto toDto() {
+        return cars.toDto();
     }
 
     @Override
